@@ -1,0 +1,12 @@
+[package]
+name = "rusty_math"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "rusty_math"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.28.3", features = ["extension-module"] }
+rayon = "1.12.0"
