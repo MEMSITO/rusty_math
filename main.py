@@ -8,7 +8,7 @@ print("Дробные массивы\n")
 n = 10_000_000
 data_list = [random.uniform(1.0, 10000.0) for _ in range(n)]
 data_list_np = np.array(data_list).astype(np.float64)
-data_list_f64 = rusty_math.farray(data_list)
+data_list_f64 = rusty_math.array(data_list)
 print(type(data_list_f64))
 print(type(data_list_np))
 print(f"Размер массива: {n:,} элементов\n")
@@ -60,7 +60,7 @@ def test_my_sum():
     start = time.perf_counter()
     result = rusty_math.sum(data_list_i128)
     end = time.perf_counter()
-    print(f"rusty_math.sum  → {result:.6f} | время: {(end-start)*1000:10.5f} мс")
+    print(f"rusty_math.sum  → {result} | время: {(end-start)*1000:10.5f} мс")
 
 
 
@@ -68,13 +68,13 @@ def test_sum():
     start = time.perf_counter()
     result = sum(data_list)
     end = time.perf_counter()
-    print(f"math.sum       → {result:.6f} | время: {(end-start)*1000:10f} мс")
+    print(f"math.sum       → {result} | время: {(end-start)*1000:10f} мс")
 
 def test_numpy():
     start = time.perf_counter()
     result = data_list_np.sum()
     end = time.perf_counter()
-    print(f"numpy.sum       → {result:.6f} | время: {(end-start)*1000:10f} мс")
+    print(f"numpy.sum       → {result} | время: {(end-start)*1000:10f} мс")
 
 
 
@@ -83,3 +83,24 @@ for _ in range(5):
     test_my_sum()
     test_sum()
     test_numpy()
+print("Тест работы метода array")
+
+test_arr = [0,2,3.0,"1gfg"]
+t_arr = rusty_math.array(test_arr)
+print(type(t_arr))
+print(t_arr)
+
+test_arr = [0,2,3.0,27, 56]
+t_arr = rusty_math.array(test_arr)
+print(type(t_arr))
+print(t_arr)
+
+test_arr = [1,2,3,4,5,6,7,8,9]
+t_arr = rusty_math.array(test_arr)
+print(type(t_arr))
+print(t_arr)
+
+test_arr = [1.0,7.0,8.0,9.0]
+t_arr = rusty_math.array(test_arr)
+print(type(t_arr))
+print(t_arr)
